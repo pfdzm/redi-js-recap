@@ -80,17 +80,17 @@ const exampleData = [
  * 1. We need to loop through each person in the exampleData array
  *    - Use a for...of loop or forEach to iterate through the array
  *    - Each iteration will handle one person's data
- * 
+ *
  * 2. For each person in the array:
  *    a. Create a new paragraph element using document.createElement('p')
- *    b. Format the text content by combining name and age 
+ *    b. Format the text content by combining name and age
  *       Hint: Use string template literals like `${person.name} is ${person.age} years old`
  *    c. Set this formatted text as the paragraph's textContent
- * 
+ *
  * 3. Add each paragraph to the page:
  *    - Use document.body.appendChild() to add the paragraph
  *    - Make sure to do this for each person inside the loop
- * 
+ *
  * Hint: The structure will look something like:
  * for (const person of exampleData) {
  *   // Create and add paragraph for this person
@@ -101,3 +101,80 @@ function addPeopleToPage() {
 }
 
 addPeopleToPage();
+
+/**
+ * TODO: Add a button to the page. Add an event listener to the button for the click event and change the background-color style property of the document body to toggle between light and dark.
+ *
+ * Step by step:
+ * 1. Create a button element using document.createElement('button')
+ * 2. Set the text content of the button to "Toggle Theme"
+ * 3. Add the button to the page by appending it to the body
+ * 4. Add an event listener to the button for the click event
+ * 5. Inside the event listener, toggle the background color of the body between light and dark
+ *
+ * Hint: You can use the classList.toggle() method to toggle a class on the body element. Remember to add a light and dark class to the body element in the CSS (style.css).
+ */
+function toggleTheme() {
+  // Your code here
+}
+
+toggleTheme();
+
+/**
+ * Create an async function that fetches data from an API and prints it to console
+ *
+ * Step by step:
+ * 1. Create an async function called fetchData
+ * 2. Use fetch to get data from the API endpoint
+ *    You can use whatever API you want, but here are some ideas:
+ *      - https://fakestoreapi.com/docs/
+ *      - https://pokeapi.co/
+ *      - https://rickandmortyapi.com/documentation
+ * 3. Print the data to the console
+ *
+ * Hint: Remember to handle errors with a try/catch block
+ */
+async function fetchData() {
+  // Your code here
+}
+
+await fetchData();
+// ^ note the use of `await` here, since it's an async function
+
+/**
+ * TODO: Instead of simply printing to console, create UI components using the data returned from the API and insert them into your webpage
+
+ *
+ * Step by step:
+ * 1. Create a new div element using document.createElement('div')
+ * 2. Set the innerHTML of the div to include an h1, p, and img
+ * 3. Add the div to the page by appending it to the body
+ *
+ * Hint: You can use template literals to create the HTML content for the div like for example:
+ * const html = `<h1>${data.title}</h1><p>${data.description}</p><img src="${data.image}" alt="${data.title}" />`
+ * element.innerHTML = html
+ */
+function renderData(data) {
+  // Your code here
+}
+
+renderData(await fetchData());
+
+/**
+ * TODO: Add a button that will fetch new data when clicked and replace the page contents with this new data
+ *
+ * Step by step:
+ * 1. Create a new button element using document.createElement('button')
+ * 2. Set the text content of the button to "Fetch New Data"
+ * 3. Add the button to the page by appending it to the body
+ * 4. Add an event listener to the button for the click event
+ * 5. Inside the event listener, fetch new data using the fetchData function
+ * 6. Replace the page contents with the new data using the createUI function
+ *
+ * Hint: You can use element.innerHTML = '' to clear the page contents before adding the new data
+ */
+function fetchNewDataAndRender() {
+  // Your code here
+}
+
+fetchNewDataAndRender();
