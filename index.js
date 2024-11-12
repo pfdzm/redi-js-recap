@@ -52,3 +52,52 @@ function fibonacci(n) {
 }
 
 fibonacci(100);
+
+/**
+ * This function adds "Hello DOM" text to the webpage
+ *
+ * Step by step:
+ * 1. First, we create a new paragraph element using document.createElement()
+ * 2. Next, we set the text content of that element using textContent
+ * 3. Finally, we add the element to the body of the page using appendChild()
+ */
+function addHelloDOM() {
+  // Your code here
+}
+
+addHelloDOM();
+
+const exampleData = [
+  { name: "John", age: 25 },
+  { name: "Jane", age: 30 },
+  { name: "Jim", age: 35 },
+];
+
+/**
+ * TODO: Implement a function that takes the exampleData array and adds each person's name and age to the page
+ *
+ * Step by step:
+ * 1. We need to loop through each person in the exampleData array
+ *    - Use a for...of loop or forEach to iterate through the array
+ *    - Each iteration will handle one person's data
+ * 
+ * 2. For each person in the array:
+ *    a. Create a new paragraph element using document.createElement('p')
+ *    b. Format the text content by combining name and age 
+ *       Hint: Use string template literals like `${person.name} is ${person.age} years old`
+ *    c. Set this formatted text as the paragraph's textContent
+ * 
+ * 3. Add each paragraph to the page:
+ *    - Use document.body.appendChild() to add the paragraph
+ *    - Make sure to do this for each person inside the loop
+ * 
+ * Hint: The structure will look something like:
+ * for (const person of exampleData) {
+ *   // Create and add paragraph for this person
+ * }
+ */
+function addPeopleToPage() {
+  // Your code here
+}
+
+addPeopleToPage();
