@@ -228,4 +228,16 @@ async function fetchNewDataAndRender() {
   });
 }
 
+
+// Search functionality
+document.getElementById("search").addEventListener("input", async (event) => {
+  const searchValue = event.target.value;
+  const data = await fetchData();
+  const filteredData = data.filter((product) =>
+    product.title.toLowerCase().includes(searchValue.toLowerCase())
+  );
+  console.log(filteredData.length)
+  renderData(filteredData);
+});
+
 fetchNewDataAndRender();
