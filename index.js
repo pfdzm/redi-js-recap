@@ -20,7 +20,17 @@
  * For example: 15 % 3 === 0 means 15 is divisible by 3
  */
 function fizzBuzz(n) {
-  // Your code here
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
 }
 
 fizzBuzz(100);
@@ -48,7 +58,13 @@ fizzBuzz(100);
  * to get the next number in the sequence
  */
 function fibonacci(n) {
-  // Your code here
+  let prev = 0;
+  let current = 1;
+  while (current <= n) {
+    console.log(current);
+    prev = current;
+    current = prev + current;
+  }
 }
 
 fibonacci(100);
@@ -62,7 +78,9 @@ fibonacci(100);
  * 3. Finally, we add the element to the body of the page using appendChild()
  */
 function addHelloDOM() {
-  // Your code here
+  const p = document.createElement("p");
+  p.textContent = "Hello DOM";
+  document.body.appendChild(p);
 }
 
 addHelloDOM();
@@ -97,7 +115,11 @@ const exampleData = [
  * }
  */
 function addPeopleToPage() {
-  // Your code here
+  for (const person of exampleData) {
+    const p = document.createElement("p");
+    p.textContent = `${person.name} is ${person.age} years old`;
+    document.body.appendChild(p);
+  }
 }
 
 addPeopleToPage();
@@ -115,7 +137,13 @@ addPeopleToPage();
  * Hint: You can use the classList.toggle() method to toggle a class on the body element. Remember to add a light and dark class to the body element in the CSS (style.css).
  */
 function toggleTheme() {
-  // Your code here
+  const button = document.createElement("button");
+  button.textContent = "Toggle Theme";
+  document.body.appendChild(button);
+  button.addEventListener("click", () => {
+    document.body.classList.toggle("light");
+    document.body.classList.toggle("dark");
+  });
 }
 
 toggleTheme();
@@ -135,7 +163,17 @@ toggleTheme();
  * Hint: Remember to handle errors with a try/catch block
  */
 async function fetchData() {
-  // Your code here
+  try {
+    const response = await fetch("https://fakestoreapi.com/products");
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 await fetchData();
@@ -143,7 +181,6 @@ await fetchData();
 
 /**
  * TODO: Instead of simply printing to console, create UI components using the data returned from the API and insert them into your webpage
-
  *
  * Step by step:
  * 1. Create a new div element using document.createElement('div')
@@ -154,8 +191,14 @@ await fetchData();
  * const html = `<h1>${data.title}</h1><p>${data.description}</p><img src="${data.image}" alt="${data.title}" />`
  * element.innerHTML = html
  */
-function renderData(data) {
-  // Your code here
+async function renderData(data) {
+  const container = document.createElement("div");
+  document.body.appendChild(container);
+  for (const product of data.slice(0, 3)) {
+    const div = document.createElement("div");
+    div.innerHTML = `<h1>${product.title}</h1><p>${product.description}</p><img src="${product.image}" alt="${product.title}" />`;
+    container.appendChild(div);
+  }
 }
 
 renderData(await fetchData());
@@ -173,8 +216,16 @@ renderData(await fetchData());
  *
  * Hint: You can use element.innerHTML = '' to clear the page contents before adding the new data
  */
-function fetchNewDataAndRender() {
-  // Your code here
+async function fetchNewDataAndRender() {
+  const button = document.createElement("button");
+  button.textContent = "Fetch New Data";
+  document.body.appendChild(button);
+  button.addEventListener("click", async () => {
+    const container = document.querySelector(".container");
+    container.innerHTML = "";
+    const data = await fetchData();
+    renderData(data);
+  });
 }
 
 fetchNewDataAndRender();

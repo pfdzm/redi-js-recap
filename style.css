@@ -14,3 +14,20 @@ body {
   max-width: 32rem;
   margin: 0 auto;
 }
+body.light {
+  background-color: white;
+  * {
+    color: black;
+  }
+}
+body.dark {
+  background-color: black;
+  * {
+    color: white;
+  }
+}
+
+img {
+  max-width: 8rem;
+  height: auto;
+}
