@@ -1,9 +1,4 @@
 /**
- * Implements the FizzBuzz algorithm for numbers 1 to n
- * and prints the result to the console
- * @param {number} n - The number to count up to
- */
-/**
  * TODO: Implement the FizzBuzz algorithm by following these steps:
  *
  * 1. Create a function called fizzBuzz that takes a number parameter n
@@ -29,3 +24,32 @@ function fizzBuzz(n) {
 }
 
 fizzBuzz(100);
+
+
+/**
+ * BONUS: Implement a function that prints the Fibonacci sequence up to n
+ * 
+ * 1. Create a function called fibonacci that takes a number parameter n
+ * 
+ * 2. Inside the function:
+ *    - Create variables to track the previous two numbers in the sequence
+ *    - Start with 0 and 1 as the first two numbers
+ * 
+ * 3. Use a while loop that:
+ *    - Continues as long as the next number is less than or equal to n
+ *    - Calculates the next number by adding the previous two numbers
+ *    - Prints each number in the sequence
+ *    - Updates the previous two numbers for the next iteration
+ * 
+ * 4. Test your function with different values of n
+ * 
+ * Example: fibonacci(10) should print: 0, 1, 1, 2, 3, 5, 8
+ * 
+ * Hint: The Fibonacci sequence is formed by adding the previous two numbers
+ * to get the next number in the sequence
+ */
+function fibonacci(n) {
+  // Your code here
+}
+
+fibonacci(100);
