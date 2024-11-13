@@ -192,12 +192,12 @@ await fetchData();
  * element.innerHTML = html
  */
 async function renderData(data) {
-  const container = document.createElement("div");
-  document.body.appendChild(container);
-  for (const product of data.slice(0, 3)) {
+  const productsContainer = document.getElementById("products");
+  productsContainer.innerHTML = "";
+  for (const product of data) {
     const div = document.createElement("div");
     div.innerHTML = `<h1>${product.title}</h1><p>${product.description}</p><img src="${product.image}" alt="${product.title}" />`;
-    container.appendChild(div);
+    productsContainer.appendChild(div);
   }
 }
 
@@ -221,23 +221,27 @@ async function fetchNewDataAndRender() {
   button.textContent = "Fetch New Data";
   document.body.appendChild(button);
   button.addEventListener("click", async () => {
-    const container = document.querySelector(".container");
-    container.innerHTML = "";
-    const data = await fetchData();
-    renderData(data);
+    renderData(await fetchData());
   });
 }
-
+fetchNewDataAndRender();
 
 // Search functionality
-document.getElementById("search").addEventListener("input", async (event) => {
-  const searchValue = event.target.value;
+async function fetchFilterAndRender(searchValue) {
   const data = await fetchData();
   const filteredData = data.filter((product) =>
     product.title.toLowerCase().includes(searchValue.toLowerCase())
   );
-  console.log(filteredData.length)
   renderData(filteredData);
+}
+
+document.getElementById("search").addEventListener("input", async (event) => {
+  await fetchFilterAndRender(event.target.value);
 });
 
-fetchNewDataAndRender();
+document
+  .getElementById("search-form")
+  .addEventListener("submit", async (event) => {
+    event.preventDefault(); // prevent the default action of a form submit, which would reload the page
+    await fetchFilterAndRender(event.target.search.value);
+  });

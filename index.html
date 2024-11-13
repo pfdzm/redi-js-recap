@@ -12,8 +12,10 @@
     />
   </head>
   <body>
-    <form>
-      <input type="search" name="search" id="search" />
+    <form id="search-form">
+      <label for="search">Search</label>
+      <input type="search" name="search" id="search" placeholder="Search for a product" />
+      <button type="submit">Search</button>
     </form>
     <div class="container">
       <h1>JS Recap</h1>
@@ -25,6 +27,8 @@
         "Inspect".
       </p>
     </div>
+
+    <div id="products"></div>
 
     <script type="module" src="index.js"></script>
   </body>
