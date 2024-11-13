@@ -141,7 +141,6 @@ function toggleTheme() {
   button.textContent = "Toggle Theme";
   document.body.appendChild(button);
   button.addEventListener("click", () => {
-    document.body.classList.toggle("light");
     document.body.classList.toggle("dark");
   });
 }

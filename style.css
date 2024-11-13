@@ -14,16 +14,18 @@ body {
   max-width: 32rem;
   margin: 0 auto;
 }
-body.light {
-  background-color: white;
-  * {
-    color: black;
-  }
-}
 body.dark {
   background-color: black;
   * {
     color: white;
+  }
+  button {
+    background-color: white;
+    color: black;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 }
 
